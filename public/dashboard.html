@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Message Dashboard</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=480" />
+	<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<br>
+<h1>Message Dashboard</h1>
+
+<form>
+  <input type="radio" id="alarm" name="icon" value="alarm"><img class="icon" src="icons/alarm.png">
+  <input type="radio" id="snow" name="icon" value="snow"><img class="icon" src="icons/snow.png">
+  <input type="radio" id="fire" name="icon" value="fire"><img class="icon" src="icons/fire.png">
+  <input type="radio" id="earthquake" name="icon" value="earthquake"><img class="icon" src="icons/earthquake.png"><br>
+  <input type="radio" id="tsunami" name="icon" value="tsunami"><img class="icon" src="icons/tsunami.png">
+  <input type="radio" id="zombies" name="icon" value="zombies" checked="checked"><img class="icon" src="icons/zombies.png">
+  <input type="radio" id="ship" name="icon" value="ship"><img class="icon" src="icons/ship.png">
+  <input type="radio" id="asteroid" name="icon" value="asteroid"><img class="icon" src="icons/asteroid.png"><br>
+  <br>
+  
+<table>
+  <tr>
+    <td class="label"><label for="title">Title:</label></td>
+    <td><input type="text" id="title" name="title" size="50" value="Zombie Alert!!"></td>
+  </tr>
+  <tr>
+    <td class="label"><label for="message">Message:</label></td>
+    <td><input type="text" id="message" name="message" size="50" value="Zombies have been detected in your area."></td>
+  </tr>
+  <tr>
+    <td class="label"><label for="message">Color:</label></td>
+    <td><input type="text" id="color" name="color" size="15" value="#E87940"></td>
+  </tr>
+  <tr>
+    <td class="label" style="vertical-align: top"><label for="message">States:</label></td>
+    <td id="groups">
+       <input type="checkbox" id="AL" name="states" checked /><label class="states" for="states">AL</label>
+       <input type="checkbox" id="AK" name="states" checked /><label class="states" for="states">AK</label>
+       <input type="checkbox" id="AZ" name="states" checked /><label class="states" for="states">AZ</label>
+       <input type="checkbox" id="AR" name="states" checked /><label class="states" for="states">AR</label>
+       <input type="checkbox" id="CA" name="states" checked /><label class="states" for="states">CA</label>
+       <input type="checkbox" id="CO" name="states" checked /><label class="states" for="states">CO</label>
+       <input type="checkbox" id="CT" name="states" checked /><label class="states" for="states">CT</label>
+       <input type="checkbox" id="DE" name="states" checked /><label class="states" for="states">DE</label>
+       <input type="checkbox" id="DC" name="states" checked /><label class="states" for="states">DC</label><br>
+       <input type="checkbox" id="FL" name="states" checked /><label class="states" for="states">FL</label>
+       <input type="checkbox" id="GA" name="states" checked /><label class="states" for="states">GA</label>
+       <input type="checkbox" id="HI" name="states" checked /><label class="states" for="states">HI</label>
+       <input type="checkbox" id="ID" name="states" checked /><label class="states" for="states">ID</label>
+       <input type="checkbox" id="IL" name="states" checked /><label class="states" for="states">IL</label>
+       <input type="checkbox" id="IN" name="states" checked /><label class="states" for="states">IN</label>
+       <input type="checkbox" id="IA" name="states" checked /><label class="states" for="states">IA</label>
+       <input type="checkbox" id="KS" name="states" checked /><label class="states" for="states">KS</label>
+       <input type="checkbox" id="KY" name="states" checked /><label class="states" for="states">KY</label><br>
+       <input type="checkbox" id="LA" name="states" checked /><label class="states" for="states">LA</label>
+       <input type="checkbox" id="ME" name="states" checked /><label class="states" for="states">ME</label>
+       <input type="checkbox" id="MD" name="states" checked /><label class="states" for="states">MD</label>
+       <input type="checkbox" id="MA" name="states" checked /><label class="states" for="states">MA</label>
+       <input type="checkbox" id="MI" name="states" checked /><label class="states" for="states">MI</label>
+       <input type="checkbox" id="MN" name="states" checked /><label class="states" for="states">MN</label>
+       <input type="checkbox" id="MS" name="states" checked /><label class="states" for="states">MS</label>
+       <input type="checkbox" id="MO" name="states" checked /><label class="states" for="states">MO</label>
+       <input type="checkbox" id="MT" name="states" checked /><label class="states" for="states">MT</label><br>
+       <input type="checkbox" id="NE" name="states" checked /><label class="states" for="states">NE</label>
+       <input type="checkbox" id="NV" name="states" checked /><label class="states" for="states">NV</label>
+       <input type="checkbox" id="NH" name="states" checked /><label class="states" for="states">NH</label>
+       <input type="checkbox" id="NJ" name="states" checked /><label class="states" for="states">NJ</label>
+       <input type="checkbox" id="NM" name="states" checked /><label class="states" for="states">NM</label>
+       <input type="checkbox" id="NY" name="states" checked /><label class="states" for="states">NY</label>
+       <input type="checkbox" id="NC" name="states" checked /><label class="states" for="states">NC</label>
+       <input type="checkbox" id="ND" name="states" checked /><label class="states" for="states">ND</label>
+       <input type="checkbox" id="OH" name="states" checked /><label class="states" for="states">OH</label><br>
+       <input type="checkbox" id="OK" name="states" checked /><label class="states" for="states">OK</label>
+       <input type="checkbox" id="OR" name="states" checked /><label class="states" for="states">OR</label>
+       <input type="checkbox" id="PA" name="states" checked /><label class="states" for="states">PA</label>
+       <input type="checkbox" id="RI" name="states" checked /><label class="states" for="states">RI</label>
+       <input type="checkbox" id="SC" name="states" checked /><label class="states" for="states">SC</label>
+       <input type="checkbox" id="SD" name="states" checked /><label class="states" for="states">SD</label>
+       <input type="checkbox" id="TN" name="states" checked /><label class="states" for="states">TN</label>
+       <input type="checkbox" id="TX" name="states" checked /><label class="states" for="states">TX</label>
+       <input type="checkbox" id="UT" name="states" checked /><label class="states" for="states">UT</label><br>
+       <input type="checkbox" id="VT" name="states" checked /><label class="states" for="states">VT</label>
+       <input type="checkbox" id="VA" name="states" checked /><label class="states" for="states">VA</label>
+       <input type="checkbox" id="WA" name="states" checked /><label class="states" for="states">WA</label>
+       <input type="checkbox" id="WV" name="states" checked /><label class="states" for="states">WV</label>
+       <input type="checkbox" id="WI" name="states" checked /><label class="states" for="states">WI</label>
+       <input type="checkbox" id="WY" name="states" checked /><label class="states" for="states">WY</label>
+       &nbsp;<a href="#" onclick="checkAll(true)">all</a>&nbsp;
+       &nbsp;<a href="#" onclick="checkAll(false)">none</a> 
+     </td>
+  </tr>
+</table>
+
+<br><button type="button" onclick="sendMessage()">Send Message</button>
+
+</body>
+<script src="dashboard.js"></script>
+</html>

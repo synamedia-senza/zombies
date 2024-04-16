@@ -1,0 +1,10 @@
+{
+  "tenantId": "iguc6vro",
+  "oauth": {
+    "client_id": "your_client_id",
+    "client_secret": "your_client_secret",
+    "audience": "https://projects.synamedia.com",
+    "grant_type": "client_credentials"
+  }
+}
+

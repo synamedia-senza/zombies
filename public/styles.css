@@ -1,0 +1,46 @@
+body {
+  width: 1920px;
+  height: 1080px;
+	margin: 0px;
+	background-color: black;
+  overflow: hidden;
+}
+  
+#main {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+	background-color: white;
+  text-align: center;
+}
+
+#icon {
+  padding-top: 30px;
+  width: 330px;
+  height: 330px;
+}
+
+#banner {
+  position: absolute;
+  width: 900px;
+	top: 200px;
+  left: 510px;
+  border-radius: 35px;
+  background-color: #E87940;
+  filter: drop-shadow(black 0px 7px 10px);
+  color: black;
+  padding-top: 20px;
+  z-index: 2;
+  opacity: 0.0;
+}
+
+#title {
+	font: 56pt Helvetica; 
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+#message {
+	font: 42pt Helvetica; 
+  padding: 30px 40px 45px 40px;
+}

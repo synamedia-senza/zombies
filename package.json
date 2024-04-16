@@ -1,0 +1,19 @@
+{
+  "name": "zombies",
+  "version": "1.0.0",
+  "description": "Zombies packages",
+  "main": "voice.js",
+  "scripts": {
+    "start": "node zombies.js"
+  },
+  "dependencies": {
+    "errorhandler": "^1.3.5",
+    "express": "^4.10.4",
+    "request": "^2.64.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {},
+  "author": "Andrew Zamler-Carhart",
+  "license": "ISC",
+  "type": "module"
+}

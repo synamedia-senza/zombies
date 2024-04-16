@@ -1,0 +1,53 @@
+body {
+  font-family: Avenir, Verdana, Arial, sans-serif;
+  font-size: 18pt;
+  text-align: center;
+  background-color: white;
+}
+
+.icon {
+  width: 128px;
+  height: 128px;
+}
+
+input[type='radio'] { 
+  transform: scale(2); 
+  margin-top: -50px;
+  margin-bottom: 50px;
+  margin-left: 40px;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+input, button {
+  font-family: Avenir, Verdana, Arial, sans-serif;
+  font-size: 18pt;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  text-align: left;
+}
+
+input[type='checkbox'] { 
+  transform: scale(1.5); 
+  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.states {
+  display: inline-block;
+  width: 40px;
+}
+
+.label {
+  font-weight: bold;
+  text-align: right;
+  padding-right: 10px;
+}
