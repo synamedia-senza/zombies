@@ -1,5 +1,5 @@
 {
-  "tenantId": "iguc6vro",
+  "tenantId": "your_tenant_id",
   "oauth": {
     "client_id": "your_client_id",
     "client_secret": "your_client_secret",
