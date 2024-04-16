@@ -36,7 +36,7 @@ hs.messageManager.addEventListener("message", async (event) => {
   }
 
   let payload = JSON.parse(event.detail.payload);
-  console.log("Title: " + payload["title"]);
+  console.log(payload);
   
   banner.style.opacity = 1.0;
   icon.src = `icons/${payload.icon}.png`
