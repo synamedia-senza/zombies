@@ -2,6 +2,8 @@
 
 A demo that shows how to send emergency notifications to a TV app.
 
+See the [Emergency Alerts](https://developer.synamedia.com/senza/docs/emergency-alerts) tutorial in the Senza developer documentation.
+
 ### Install Node.js
 
 Install the [Node.js](https://nodejs.org/download) runtime environment. Node.js is a tool that is used to run the Zombies server, which is implemented as a JavaScript script. 
