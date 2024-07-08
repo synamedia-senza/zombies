@@ -2,17 +2,17 @@ class VideoManager {
 
   init(player) {
     this.localPlayer = player;
-    this.remotePlayer = hs.remotePlayer;
+    this.remotePlayer = senza.remotePlayer;
  
-    hs.remotePlayer.addEventListener("timeupdate", () => {
-      this.media().currentTime = hs.remotePlayer.currentTime || 0;
+    senza.remotePlayer.addEventListener("timeupdate", () => {
+      this.media().currentTime = senza.remotePlayer.currentTime || 0;
     });
 
-    hs.remotePlayer.addEventListener("ended", () => {
-      hs.lifecycle.moveToForeground();
+    senza.remotePlayer.addEventListener("ended", () => {
+      senza.lifecycle.moveToForeground();
     });
 
-    hs.lifecycle.addEventListener("onstatechange", (event) => {
+    senza.lifecycle.addEventListener("onstatechange", (event) => {
       if (event.state === "background") {
         this.pause();
       } else if (event.state === "foreground") {
@@ -24,7 +24,7 @@ class VideoManager {
   async load(url) {
     await this.localPlayer.load(url);
     try {
-      await hs.remotePlayer.load(url);
+      await senza.remotePlayer.load(url);
     } catch (error) {
       console.log("Couldn't load remote player.");
     }
@@ -57,19 +57,19 @@ class VideoManager {
   }
 
   moveToForeground() {
-    hs.lifecycle.moveToForeground();
+    senza.lifecycle.moveToForeground();
   }
 
   moveToBackground() {
     let currentTime = this.media().currentTime;
-    hs.remotePlayer.currentTime = currentTime;
-    hs.remotePlayer.play();
+    senza.remotePlayer.currentTime = currentTime;
+    senza.remotePlayer.play();
   }
   
   async toggleBackground() {
-    const currentState = await hs.lifecycle.getState();
+    const currentState = await senza.lifecycle.getState();
     if (currentState == "background" || currentState == "inTransitionToBackground") {
-      hs.lifecycle.moveToForeground();
+      senza.lifecycle.moveToForeground();
     } else {
       this.moveToBackground();
     }

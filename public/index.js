@@ -4,14 +4,14 @@ let videoManager = new VideoManager();
 
 window.addEventListener("load", async () => {
   try {
-    await hs.init();
+    await senza.init();
     videoManager.init(new shaka.Player(video));
     await videoManager.load(TEST_VIDEO);
     videoManager.play();
-    hs.uiReady();
+    senza.uiReady();
 
     // register to receive messages sent to these groups
-    hs.messageManager.registerGroups(["CT", "NJ", "NY"]);
+    senza.messageManager.registerGroups(["CT", "NJ", "NY"]);
     
   } catch (error) {
     console.error(error);
@@ -30,9 +30,9 @@ document.addEventListener("keydown", async function(event) {
 });
 
 hs.messageManager.addEventListener("message", async (event) => {
-  const currentState = await hs.lifecycle.getState();
+  const currentState = await senza.lifecycle.getState();
   if (currentState == "background" || currentState == "inTransitionToBackground") {
-    hs.lifecycle.moveToForeground();
+    senza.lifecycle.moveToForeground();
   }
 
   let payload = JSON.parse(event.detail.payload);
