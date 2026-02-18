@@ -11,7 +11,22 @@ import express from 'express';
 import errorHandler from 'errorhandler';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import config from './config.json' with {type: "json"};
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const tenantId = process.env.TENANT_ID;
+const oauth = {
+  client_id: process.env.CLIENT_ID,
+  client_secret: process.env.CLIENT_SECRET,
+  audience: 'https://projects.synamedia.com',
+  grant_type: 'client_credentials'
+};
+
+if (!tenantId || !oauth.client_id || !oauth.client_secret) {
+  console.error('Missing required environment variables. Please set TENANT_ID, CLIENT_ID, and CLIENT_SECRET (e.g. in a .env file).');
+  process.exit(1);
+}
 
 let app = express();
 let hostname = process.env.HOSTNAME || 'localhost';
@@ -27,29 +42,35 @@ console.log("Zombies server running at " + hostname + ":" + port);
 
 app.post('/message', function (req, res) {
   console.log(req.body);
-  sendGroupMessage(config.tenantId, req.body.groups, req.body.payload, "ZombieAlert");
+  sendGroupMessage(tenantId, req.body.groups, req.body.payload, "ZombieAlert");
   res.end();
 });
 
-async function getAcesssToken() {
+async function getAccessToken() {
   let tokenResponse = await fetch("https://auth.synamedia.com/oauth/token", {
-  	method: "post",
-  	body: JSON.stringify(config.oauth),
-  	headers: {"Content-Type": "application/json"}
+    method: "post",
+    body: JSON.stringify(oauth),
+    headers: {"Content-Type": "application/json"}
   });
   let json = await tokenResponse.json();
   return json.access_token;
 }
 
-let accessToken = await getAcesssToken();
-setTimeout(() => accessToken = getAccessToken(), 21600000);
+let accessToken = await getAccessToken();
+setInterval(async () => {
+  try {
+    accessToken = await getAccessToken();
+  } catch (err) {
+    console.error('Failed to refresh access token:', err);
+  }
+}, 21600000);
 
 async function sendGroupMessage(tenantId, groups, payload, eventName) {
   let res = await fetch("https://hyperscale-message-broker-main.ingress.active.streaming.synamedia.com/" + 
     "message-broker/1.0/messages/tenant/" + tenantId + "/groups/app", {
-  	method: "post",
-  	body: JSON.stringify({groups, payload, eventName}),
-  	headers: {
+      method: "post",
+      body: JSON.stringify({groups, payload, eventName}),
+      headers: {
       "Content-Type": "application/json",
       "Authorization": "Bearer " + accessToken
     }
@@ -60,14 +81,14 @@ async function sendGroupMessage(tenantId, groups, payload, eventName) {
 async function sendDeviceMessage(deviceId, payload, eventName) {
   let res = await fetch("https://hyperscale-message-broker-main.ingress.active.streaming.synamedia.com/" + 
     "message-broker/1.0/messages/devices/" + deviceId, {
-  	method: "post",
-  	body: JSON.stringify({
+      method: "post",
+      body: JSON.stringify({
       payload, 
       eventName, 
       "target": "application",
       "origin": "internal"
     }),
-  	headers: {
+      headers: {
       "Content-Type": "application/json",
       "Authorization": "Bearer " + accessToken
     }
